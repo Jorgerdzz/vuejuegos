@@ -36,6 +36,7 @@
               <p class="card-text">Nacimiento: {{ jugador.fechaNacimiento }}</p>
               <p class="card-text">País: {{ jugador.pais }}</p>
             </div>
+            <button @click="eliminarJugador(jugador.idJugador)" class="btn btn-danger">Eliminar jugador</button>
           </div>
         </div>
       </div>
@@ -46,6 +47,7 @@
 
 <script>
 import ServiceFutbol from '../services/ServiceFutbol';
+import Swal from 'sweetalert2'
 const service = new ServiceFutbol();
 
 export default {
@@ -65,6 +67,29 @@ export default {
             this.equipo = response[0];
             this.jugadores = response[1];
         });
+    },
+    eliminarJugador(idJugador){
+      Swal.fire({
+        icon: 'question',
+        title: '¿Estas seguro que desea eliminar a este jugador?',
+        text: 'El jugador se eliminará definitivamente',
+        timer: 3000,
+        timerProgressBar: true,
+        showCancelButton: true
+      }).then((result)=>{
+        if(result.isConfirmed){
+          service.deleteJugador(idJugador).then(()=>{
+            Swal.fire({
+              icon: 'success',
+              title: 'Jugador eliminado correctamente',
+              timer: 3000,
+              timerProgressBar: true
+            }).then(()=>{
+              this.getDatosEquipo();
+            })
+          })
+        }
+      })
     }
   }, 
   watch:{

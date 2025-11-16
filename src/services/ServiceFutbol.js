@@ -49,5 +49,25 @@ export default class ServiceFutbol{
         ])
     }
 
+    insertJugador(jugador){
+        return new Promise((resolve)=>{
+            let url = Global.urlApiApuestas;
+            let request = "api/Jugadores";
+            axios.post(url + request, jugador).then(response=>{
+                resolve(response)
+            })
+        })
+    }
+
+    deleteJugador(idJugador){
+        return new Promise((resolve)=>{
+            let url = Global.urlApiApuestas;
+            let request = "api/Jugadores/" + idJugador;
+            axios.delete(url + request).then(response=>{
+                resolve(response)
+            });
+        })
+    }
+
 
 }
