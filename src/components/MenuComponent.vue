@@ -18,9 +18,6 @@
           <li class="nav-item">
             <router-link class="nav-link active" aria-current="page" to="/">Home</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="#">Link</router-link>
-          </li>
           <li class="nav-item dropdown">
             <router-link
               class="nav-link dropdown-toggle"
@@ -34,6 +31,9 @@
             <ul class="dropdown-menu">
               <li v-for="equipo in equipos" :key="equipo"><router-link class="dropdown-item" :to="'/equipos/' + equipo.idEquipo">{{equipo.nombre}}</router-link></li>
             </ul>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/upload">Subir fichero</router-link>
           </li>
         </ul>
         <form v-on:submit.prevent="buscarJugador()" class="d-flex" role="search">
