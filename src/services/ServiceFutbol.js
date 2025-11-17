@@ -3,6 +3,15 @@ import axios from "axios";
 
 export default class ServiceFutbol{
 
+    getJugadores(){
+        return new Promise((resolve=>{
+            let url = Global.urlApiApuestas;
+            let request = "api/Jugadores";
+            const jugadores = fetch(url + request).then(response=>response.json());
+            resolve(jugadores);
+        }))
+    }
+
     getEquipos(){
         return new Promise((resolve)=>{
             let url = Global.urlApiApuestas;
@@ -66,6 +75,16 @@ export default class ServiceFutbol{
             axios.delete(url + request).then(response=>{
                 resolve(response)
             });
+        })
+    }
+
+    traspasarJugador(idJugador, idEquipo){
+        return new Promise((resolve)=>{
+            let url = Global.urlApiApuestas;
+            let request = "api/Jugadores/" + idJugador + "/" + idEquipo;
+            axios.put(url + request).then(response=>{
+                resolve(response);
+            })
         })
     }
 

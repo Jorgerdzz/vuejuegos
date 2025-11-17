@@ -36,6 +36,9 @@
             <router-link class="nav-link" to="/create">Añadir jugador</router-link>
           </li>
           <li class="nav-item">
+            <router-link class="nav-link" to="/fichajes">Mercado de fichajes</router-link>
+          </li>
+          <li class="nav-item">
             <router-link class="nav-link" to="/upload">Subir fichero</router-link>
           </li>
         </ul>

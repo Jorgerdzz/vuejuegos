@@ -4,13 +4,15 @@ import DatosEquipoComponent from './components/DatosEquipoComponent.vue';
 import BusquedaJugadoresComponent from './components/BusquedaJugadoresComponent.vue';
 import UploadComponent from './components/UploadComponent.vue';
 import CreateJugadorComponent from './components/CreateJugadorComponent.vue';
+import TraspasosComponent from './components/TraspasosComponent.vue';
 
 const routes = [
     {path: "/", component: HomeComponent},
     {path: "/equipos/:idequipo", component: DatosEquipoComponent},
     {path: "/jugadores/:nombre", component: BusquedaJugadoresComponent},
     {path: "/upload", component: UploadComponent},
-    {path: "/create", component: CreateJugadorComponent}
+    {path: "/create", component: CreateJugadorComponent},
+    {path: "/fichajes", component: TraspasosComponent}
 ]
 
 const router = createRouter({
